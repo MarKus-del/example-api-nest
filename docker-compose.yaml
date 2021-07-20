@@ -8,3 +8,11 @@ services:
       - 3000:3000
     volumes:
       - ./:/home/node/app
+    depends_on:
+      - mongo
+  db:
+    image: mongo:5.0
+    volumes:
+      - ./.docker/mongo/data:/data/mongo
+    ports:
+      - 27017:27017
